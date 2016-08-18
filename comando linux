@@ -1,0 +1,7 @@
+Pon este comando, los numeros son los parametros, viendo el codigo podi ver el orden y viendo la memoria podi ver como son
+podi cambiar el archivo pero no he probado muchos, solo los primeros, derrepente me da los medios resultados pero general-
+mente me da resultados relativamente buenos, ojalá te corra
+
+python algoritmo.py A-VRP/A-n33-k5.vrp  15 75 25 75 25 100 50 100 1500000
+
+

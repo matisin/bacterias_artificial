@@ -16,6 +16,7 @@ def imprimir():
 def main(stdscr):
     stdscr.nodelay(True)
     while True:
+        time.sleep(0.5)
         stdscr.clear()
         if i >= np :
             stdscr.addstr(0,0,"Iteracion numero\t\t{0}".format(i))
@@ -47,6 +48,5 @@ def main(stdscr):
     stdscr.addstr(10,0,"Mejor fitness\t\t{0}".format(mejor_bacteria.fitness_real))
     stdscr.addstr(11,0,"Cantidad de vehiculos \t\t{0}".format(mejor_bacteria.cv))
     stdscr.addstr(12,0,"cromosoma\t\t{0}".format(mejor_bacteria.cromosoma))
-    stdscr.addstr(15,0,"Presione cualquier tecla para salir")
     stdscr.refresh()
-    stdscr.getkey()
+    time.sleep(1)

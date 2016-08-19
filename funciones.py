@@ -6,10 +6,10 @@ import numpy as np
 'Se comparan los fitness de las bacterias y se guardan la mejor y peor en el arreglo'
 def mejor_peor_fitness(bacterias,mejor_peor):
     peor_fitness = 0
-    mejor_fitness = 300000
+    mejor_fitness = 300000000
     for bacteria in bacterias:
         fitness = bacteria.fitness
-        if fitness < mejor_fitness :
+        if fitness <= mejor_fitness :
             mejor_fitness = fitness
             mejor_peor[0] = bacteria
         if fitness > peor_fitness :

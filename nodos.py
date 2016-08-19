@@ -1,5 +1,5 @@
 from nodo import Nodo
-import sys
+
 class Nodos:
     def __init__(self):
         self.nodos = []

@@ -13,7 +13,6 @@ random.seed(datetime.now())
 
 if __name__ == "__main__":
     #se inicializan los nodos con el archivo
-
     progreso.sp = int(sys.argv[1])#cantidad de bacterias
     pc = int(sys.argv[2])#probabilidad de conjugacion
     pt = int(sys.argv[3])#probabilidad de transformacion
@@ -57,8 +56,6 @@ if __name__ == "__main__":
         funciones.regeneracion_poblacion(bacterias,size)
         #se busca el mejor y peor fitness
         funciones.mejor_peor_fitness(bacterias,progreso.mejor_peor)
-        if i == 0:
-            t.start()
         if progreso.mejor_peor[0].fitness < progreso.mejor_bacteria.fitness:
             progreso.mejor_bacteria.cromosoma = progreso.mejor_peor[0].cromosoma[:]
             progreso.mejor_bacteria.calcular_fitness()
@@ -72,4 +69,9 @@ if __name__ == "__main__":
             if progreso.mejor_peor[0].fitness < progreso.mejor_bacteria.fitness:
                 progreso.mejor_bacteria.cromosoma= progreso.mejor_peor[0].cromosoma[:]
                 progreso.mejor_bacteria.calcular_fitness()
+        if i == 0:
+            t.start()
         progreso.sp = len(bacterias)
+    with open("resultados.txt", "a") as myfile:
+        resultado = str(progreso.mejor_bacteria.fitness_real)+"\n"
+        myfile.write(resultado)

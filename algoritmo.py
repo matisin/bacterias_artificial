@@ -38,8 +38,6 @@ if __name__ == "__main__":
     progreso.var_genetica = 0
     t = threading.Thread(target=progreso.imprimir)
     for i in range(0,progreso.np):
-        if stop == 1:
-            break
         progreso.i = i + 1
         #se formula el antibiotico
         antibiotico = funciones.formular_antibiotico(bacterias)
@@ -60,8 +58,7 @@ if __name__ == "__main__":
         #se busca el mejor y peor fitness
         funciones.mejor_peor_fitness(bacterias,progreso.mejor_peor)
         if i == 0:
-            t.start()
-
+            t.start()   
         if progreso.mejor_peor[0].fitness < progreso.mejor_bacteria.fitness:
             progreso.mejor_bacteria.cromosoma = progreso.mejor_peor[0].cromosoma[:]
             progreso.mejor_bacteria.calcular_fitness()

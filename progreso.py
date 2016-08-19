@@ -2,7 +2,6 @@ import threading
 import time
 from curses import wrapper
 import curses
-import algoritmo
 
 i = 0
 np = 0
@@ -50,4 +49,3 @@ def main(stdscr):
     stdscr.addstr(15,0,"Presione cualquier tecla para salir")
     stdscr.refresh()
     stdscr.getkey()
-    algoritmo.exit()

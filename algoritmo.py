@@ -14,7 +14,7 @@ random.seed(datetime.now())
 if __name__ == "__main__":
     #se inicializan los nodos con el archivo
 
-    sp = int(sys.argv[1])#cantidad de bacterias
+    progreso.sp = int(sys.argv[1])#cantidad de bacterias
     pc = int(sys.argv[2])#probabilidad de conjugacion
     pt = int(sys.argv[3])#probabilidad de transformacion
     pm = int(sys.argv[4])#probabilidad de mutacion
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     material_genetico = [] #material genetico liberado
     progreso.mejor_peor = [0,0] #arreglo con el mejor y peor bacterias encontrados en cada iteracion
     #se inicializan sp bacterias
-    funciones.inicializacion_poblacion(bacterias,sp,size)
+    funciones.inicializacion_poblacion(bacterias,progreso.sp,size)
     progreso.mejor_bacteria = Bacteria(size)
     progreso.mejor_bacteria.cromosoma = bacterias[0].cromosoma
     progreso.mejor_bacteria.calcular_fitness()
@@ -54,11 +54,11 @@ if __name__ == "__main__":
         #se aplica el antibiotico a las bacterias
         funciones.aplicar_antibiotico(no_resistentes,bacterias,material_genetico,pl)
         #se regenera la poblacion para llegar a la cantidad de bacterias inicial
-        funciones.regeneracion_poblacion(bacterias,sp,size)
+        funciones.regeneracion_poblacion(bacterias,size)
         #se busca el mejor y peor fitness
         funciones.mejor_peor_fitness(bacterias,progreso.mejor_peor)
         if i == 0:
-            t.start()   
+            t.start()
         if progreso.mejor_peor[0].fitness < progreso.mejor_bacteria.fitness:
             progreso.mejor_bacteria.cromosoma = progreso.mejor_peor[0].cromosoma[:]
             progreso.mejor_bacteria.calcular_fitness()
@@ -72,3 +72,4 @@ if __name__ == "__main__":
             if progreso.mejor_peor[0].fitness < progreso.mejor_bacteria.fitness:
                 progreso.mejor_bacteria.cromosoma= progreso.mejor_peor[0].cromosoma[:]
                 progreso.mejor_bacteria.calcular_fitness()
+        progreso.sp = len(bacterias)

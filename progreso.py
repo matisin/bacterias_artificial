@@ -8,6 +8,7 @@ np = 0
 mejor_peor = []
 mejor_bacteria = []
 var_genetica = 0
+sp = 0
 def imprimir():
     wrapper(main)
     return
@@ -24,7 +25,7 @@ def main(stdscr):
             stdscr.addstr(6,0,"Cantidad de vehiculos \t\t{0}".format(mejor_peor[0].cv))
             stdscr.addstr(7,0,"Peor fitness local\t\t{0}".format(mejor_peor[1].fitness_real))
             stdscr.addstr(8,0,"Cantidad de vehiculos \t\t{0}".format(mejor_peor[1].cv))
-            stdscr.addstr(9,0,"")
+            stdscr.addstr(9,0,"Tamanio Pobla \t\t{0}".format(sp))
             stdscr.refresh()
             break
         stdscr.addstr(0,0,"Iteracion numero\t\t{0}".format(i))
@@ -34,7 +35,7 @@ def main(stdscr):
         stdscr.addstr(6,0,"Cantidad de vehiculos \t\t{0}".format(mejor_peor[0].cv))
         stdscr.addstr(7,0,"Peor fitness local\t\t{0}".format(mejor_peor[1].fitness_real))
         stdscr.addstr(8,0,"Cantidad de vehiculos \t\t{0}".format(mejor_peor[1].cv))
-        stdscr.addstr(9,0,"")
+        stdscr.addstr(9,0,"Tamanio Pobla \t\t{0}".format(sp))
         stdscr.refresh()
         try:
             key = stdscr.getkey()

@@ -1,5 +1,7 @@
 from bacterias import Bacteria
 import random
+import math
+import numpy as np
 
 'Se comparan los fitness de las bacterias y se guardan la mejor y peor en el arreglo'
 def mejor_peor_fitness(bacterias,mejor_peor):
@@ -24,9 +26,9 @@ def inicializacion_poblacion(bacterias,sp,size):
         bacteria.calcular_fitness()
         bacterias.append(bacteria)
 
-def regeneracion_poblacion(bacterias,sp,size):
+def regeneracion_poblacion(bacterias,size):
     sobrevivientes = len(bacterias) #cantidad de bacterias que quedan
-    restantes = sp - sobrevivientes #cantidad de bacterias que faltan
+    restantes = caos(4,sobrevivientes) - sobrevivientes #cantidad de bacterias que faltan
     for i in range(0,restantes):
         bacteria = Bacteria(size) #nueva bacteria
         j = random.randrange(0,sobrevivientes) #bacteria randomica
@@ -166,3 +168,14 @@ def formular_antibiotico(bacterias):
         return antibiotico2
     else:
         return antibiotico1
+
+def caos(parametro, n):
+    inicial = n
+    valor = abs(math.sin(n))
+    valor = parametro*n*(1-valor)
+    r = random.randrange(0, 5000, 1) #indice aleatorio
+    o = np.linspace(inicial, valor, num=5000) #numeros dentro del intervalo generado
+    valor = int(abs(o[r]))+4
+    #print valor
+    #valor = int(math.asin(o[r]))
+    return valor
